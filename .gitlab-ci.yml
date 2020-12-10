@@ -1,0 +1,22 @@
+stages: 
+  - Build Docker images
+
+build:
+  image: docker:19.03.1
+  stage: Build Docker images
+  tags:
+    - cloud
+  only: 
+    refs:
+      - master
+      - CLU-34
+  services:
+    - docker:19.03.1-dind
+  before_script:
+    - apk update && apk add jq
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+  script:
+    - export VERSION=$(cat package.json | jq -r .version)
+    - docker pull $CI_REGISTRY_IMAGE/raumanzeige:$VERSION || true
+    - docker build -t $CI_REGISTRY_IMAGE/raumanzeige:$VERSION .
+    - docker push $CI_REGISTRY_IMAGE/raumanzeige:$VERSION
