@@ -1,2 +1,3 @@
 # digitale Raumanzeige
-test
+npm install
+npm run start
