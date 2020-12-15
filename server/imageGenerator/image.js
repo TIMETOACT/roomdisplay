@@ -6,7 +6,7 @@ const Jimp = require('jimp');
 const dayjs = require('dayjs');
 dayjs.extend(timeZone); // use plugin
 const logger = require('../lib/logger');
-const { initializeDisplay } = require(`../displayInteractions/interactions`);
+const { initializeDisplay } = require(`server/displayInteractions/interactions`);
 const { upload } = require(path.join(
   '..',
   'displayInteractions',

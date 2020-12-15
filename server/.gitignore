@@ -1,4 +1,4 @@
-.idea/
+../.idea/
 node_modules/
 imageGenerator/*.bmp
 imageGenerator/*.jpeg

@@ -1,6 +1,6 @@
 const request = require('request-promise');
 const date = require('dayjs');
-const logger = require('./lib/logger.js');
+const logger = require('./server/lib/logger.js');
 
 module.exports = {
   /*getUserDetails: async function(accessToken) {
